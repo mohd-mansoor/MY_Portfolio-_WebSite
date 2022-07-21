@@ -24,3 +24,17 @@ window.addEventListener("scroll", () => {
     navbar.classList.remove("fixed");
     }
 });
+
+//HTML5 Canvas Tag Cloud
+$(document).ready(function(){
+    if( ! $("#myCanvas").tagcanvas({
+        textColour: "#daa520",
+        outlineColour: "transparent",
+        reverse: true,
+        depth: 0.8,
+        maxSpeed: 0.05,
+        weight: true,
+        },"tags")){
+            $("#myCanvasContainer")
+        }
+})
