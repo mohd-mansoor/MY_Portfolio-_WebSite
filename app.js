@@ -1,4 +1,4 @@
-// navigation toggle button
+//*********************** */ navigation toggle button
 
 const navbtn=document.getElementById("nav-toggle");
 const links=document.getElementById("nav-links");
@@ -10,9 +10,9 @@ navbtn.addEventListener("click", () => {
 
 
 
-// end of navigation toggle button
+//******************* */ end of navigation toggle button
 
-// navigation navbar fixed
+//*********************** */ navigation navbar fixed
 
 const navbar=document.querySelector(".container");
 
@@ -24,8 +24,44 @@ window.addEventListener("scroll", () => {
     navbar.classList.remove("fixed");
     }
 });
+//********************************smooth scroll
+const scrollLinks= document.querySelectorAll(".scroll-link");
 
-//HTML5 Canvas Tag Cloud
+scrollLinks.forEach(link=>{
+    link.addEventListener("click",(e)=>{
+    e.preventDefault();
+
+    links.classList.remove("show-links");
+    const id= e.target.getAttribute("href").slice(1);
+    const element = document.getElementById(id);
+    // position
+    let position;
+    if(navbar.classList.contains("fixed")){
+        position=element.offsetTop-76;
+    }
+    else{
+        position=element.offsetTop-152;
+    }
+    if(window.innerWidth== 992){
+        if(navbar.classList.contains("fixed")){
+            position=element.offsetTop-76;
+        }
+        else{
+        position= element.offsetTop - 331 - 76;
+    }}
+    // window scrollTo
+    window.scrollTo({
+        left:0,
+        top:position,
+        behavior:"smooth"
+    });
+    });
+});
+
+
+
+
+//*********************** */ Canvas Tag Cloud
 $(document).ready(function(){
     if( ! $("#myCanvas").tagcanvas({
         textColour: "#daa520",

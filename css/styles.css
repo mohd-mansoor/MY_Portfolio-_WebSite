@@ -133,7 +133,7 @@ body{
     width: 100%;
     background-color: rgba(7, 7, 7, .93);
     transition: all 0.5s linear;
-    z-index: 1;
+    z-index: 10;
 }
 
 /* name section  */
@@ -142,7 +142,7 @@ body{
     display: flex;
     align-items: center;
     padding-left: 2.5rem;
-    
+    /* background: url(../image/UCML\ thumbail.svg); */
 }
 
 .text-zone h1{
@@ -150,8 +150,7 @@ body{
     color: white;
     line-height: 50px;
     letter-spacing: -3px;
-    
-    
+    animation: animate 0.6s;
 }
 .text-zone h1 p{
     display:inline-block;
@@ -287,7 +286,7 @@ body{
 /* End of Name Section/Header Section */
 /* About Section */
 #section-about{
-  padding-top: 1rem;
+  padding-top: 5rem;
   margin-top: 250px;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -323,7 +322,89 @@ body{
     color: yellow ;
 }
 
+/* End of about section */
+/* Project Section */
+.project-section{
+    padding: 1rem 1rem 0 1rem;
+}
+.project-section-heading h2{
+    font-size: 2.5rem;
+    color: goldenrod;
+    line-height: 50px;
+    display: flex;
+    justify-content: center;
+}
+.project-section-heading p{
+    display: inline-block;
+    margin: 0;
+}
+.project-section-heading p:hover{
+    animation: animate 0.6s;
+    color: yellow;
+}
+.project-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.projects{
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    
+}
+.projects::before{
+    content: "";
+    background:linear-gradient(#daa520 ,rgb(50, 192, 228) );
+    animation: bordering 4s linear infinite;
+    width:80%;
+    height:100%;
+    position: absolute;
+}
 
+.projects::after{
+     content: "";
+     position: absolute;
+     inset: 4px;
+     background: black;
+     border-radius: 16px;
+
+}
+.projects h3{
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;   
+}
+.projects p{
+    color: white;
+    margin-bottom: 15px;
+    line-height: 1.5rem;
+    text-align: justify;
+    width: 400px;
+    padding: 10px;
+}
+.projects img{
+    width: 400px;
+    height: 200px; 
+    padding-bottom: 10px; 
+}
+.projects div{
+    z-index: 1;
+}
+@keyframes bordering {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(350deg);
+    }
+}
 
 
 @media screen and (min-width : 950px) {
@@ -367,5 +448,18 @@ body{
     }
     .skills-charts{
         margin-right: 10%;
+    }
+    /* project section for window view */
+    .project-section{
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+    .project-area{
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .project-section-heading h2 {
+        font-size: 5rem;
+        letter-spacing: 1px;
     }
 }
