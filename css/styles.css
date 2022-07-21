@@ -250,7 +250,8 @@ body{
 .scroll-down{
     position: absolute;
     right: -20px;
-    bottom: 3.3rem;
+    top: 30rem;
+    /* bottom: 3.3rem; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -358,6 +359,7 @@ body{
     border-radius: 10px;
     overflow: hidden;
     
+    
 }
 .projects::before{
     content: "";
@@ -379,19 +381,20 @@ body{
 .projects h3{
     color: white;
     font-size: 1.5rem;
-    text-align: center;   
+    text-align: center;  
+    width: 320px; 
 }
 .projects p{
     color: white;
     margin-bottom: 15px;
     line-height: 1.5rem;
     text-align: justify;
-    width: 400px;
+    width: 320px;
     padding: 10px;
 }
 .projects img{
-    width: 400px;
-    height: 200px; 
+    width: 320px;
+    height: 160px; 
     padding-bottom: 10px; 
 }
 .projects div{
@@ -428,7 +431,9 @@ body{
     }
 
     .scroll-down {
+        top: auto;
         bottom: 3.3rem;
+        
     }
 
     /* About section for windows view */
@@ -461,5 +466,15 @@ body{
     .project-section-heading h2 {
         font-size: 5rem;
         letter-spacing: 1px;
+    }
+    .projects h3{
+        width: auto;
+    } 
+    .projects img{
+        width: 400px;
+        height: 200px;
+    }
+    .projects p{
+        width: 400px;
     }
 }
