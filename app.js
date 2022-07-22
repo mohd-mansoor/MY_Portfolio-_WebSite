@@ -74,3 +74,82 @@ $(document).ready(function(){
             $("#myCanvasContainer")
         }
 })
+//*********************** */ Contact Functionality
+
+const nameInput =document.querySelector('.name')
+const emailInput =document.querySelector('.email')
+const subjectInput =document.querySelector('.subject')
+const textareaInput =document.querySelector('.textarea')
+
+const contactForm =document.querySelector('.contact-form')
+
+contactForm.addEventListener("submit",(evt) =>{
+    evt.preventDefault()
+    validateInput()
+})
+
+const validateInput=() => {
+
+    let email =emailInput.value
+    let textarea= textareaInput.value
+
+    if(!email && !textarea){
+        setError(emailInput.parentElement)
+        setError(textareaInput.parentElement)
+        showMessage("please fill in the required inputs")
+    }
+    else if(!email && textarea){
+        setError(emailInput.parentElement)
+        showMessage("Oops Email can't be empty")
+    }
+    else if(!textarea && email){
+        setError(textareaInput.parentElement)
+        showMessage("Please provide a message")
+    }
+    else if(email && textarea){
+        emailjs.sendForm("service_awki0jd", "template_48b5lxr", contactForm, "5oJ1dHdAZN3bC7w63");
+        setSuccess(emailInput.parentElement)
+        setSuccess(textareaInput.parentElement)
+        showMessage("Message sent sucessfully", 'green')
+        textareaInput.value=''
+        emailInput.value=''
+        nameInput.value=''
+        subjectInput.value=''
+    }
+}
+
+const setError=(input) =>{
+    if(input.classList.contains("success")){
+        input.classList.remove("success")
+    }
+    else{
+        input.classList.add("error")
+    }
+}
+
+const setSuccess=(input) =>{
+    if(input.classList.contains("error")){
+        input.classList.remove("error")
+    }
+    else{
+        input.classList.add("success")
+    }
+}
+
+const messageDiv =document.querySelector('.message')
+const showMessage = (message , updateColor) =>{
+    const divContent =document.createElement('div')
+    divContent.textContent =message
+    divContent.classList.add("message-content")
+    divContent.style.backgroundColor = updateColor
+    messageDiv.prepend(divContent)
+
+    messageDiv.style.transform = `translate(${(0,0)}%)`
+    setTimeout(() =>{
+        divContent.classList.add("hide")
+
+        divContent.addEventListener("transitionend", ()=>{
+            divContent.remove()
+        })
+    },3000)
+}
