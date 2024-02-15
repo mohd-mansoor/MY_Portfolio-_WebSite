@@ -458,7 +458,7 @@ body{
 
 .bar.css::before {
     background-color: #2FF3E0;
-    width: calc(70% - 10px);
+    width: calc(80% - 10px);
 }
 
 .bar.java::before {
@@ -468,7 +468,7 @@ body{
 
 .bar.python::before {
     background-color: #18DCD7;
-    width: calc(60% - 10px);
+    width: calc(90% - 10px);
 }
 
 .bar.javascript::before {
@@ -478,7 +478,7 @@ body{
 
 .bar.sql::before {
     background-color: #00C5CD;
-    width: calc(60% - 10px);
+    width: calc(90% - 10px);
 }
 /* End of Skills Section */
 /* Start of Work Section */
